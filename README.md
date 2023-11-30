@@ -1,6 +1,6 @@
-# Advent of Code 2022 Solutions in Rust
+# Advent of Code 2023 Solutions in Rust
 
-My solutions for [AoC 2022](https://adventofcode.com/2022) in Rust while preparing [AoC 2023](https://adventofcode.com/2023).
+My solutions for [AoC 2023](https://adventofcode.com/2023) in Rust.
 
 I created this project so that I could focus on solving the problem with less effort to other than problem solving.
 

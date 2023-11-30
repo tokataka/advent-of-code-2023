@@ -1,4 +1,4 @@
-use advent_of_code_2022::solutions;
+use advent_of_code_2023::solutions;
 
 use std::env;
 use std::fs;
