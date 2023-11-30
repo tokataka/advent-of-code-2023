@@ -1,0 +1,13 @@
+{
+	"New AoC Solution": {
+		"scope": "rust",
+		"prefix": "solution",
+		"body": [
+			"pub fn solution(lines: Vec<&str>) -> String {",
+			"    $0",
+			"",
+			"    String::new()",
+			"}",
+		]
+	}
+}

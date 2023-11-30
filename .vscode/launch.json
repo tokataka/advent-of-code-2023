@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug 'run' for current file",
+      "cargo": {
+        "args": ["build", "--bin=run", "--package=advent-of-code-2022"],
+        "filter": {
+          "name": "run",
+          "kind": "bin"
+        }
+      },
+      "args": ["${fileBasenameNoExtension}"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug 'bench' for all solutions",
+      "cargo": {
+        "args": ["build", "--bin=bench", "--package=advent-of-code-2022"],
+        "filter": {
+          "name": "bench",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug 'bench' for current file",
+      "cargo": {
+        "args": ["build", "--bin=bench", "--package=advent-of-code-2022"],
+        "filter": {
+          "name": "bench",
+          "kind": "bin"
+        }
+      },
+      "args": ["${fileBasenameNoExtension}"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
