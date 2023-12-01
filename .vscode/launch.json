@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Debug 'run' for current file",
       "cargo": {
-        "args": ["build", "--bin=run", "--package=advent-of-code-2022"],
+        "args": ["build", "--bin=run"],
         "filter": {
           "name": "run",
           "kind": "bin"
@@ -20,7 +20,7 @@
       "request": "launch",
       "name": "Debug 'bench' for all solutions",
       "cargo": {
-        "args": ["build", "--bin=bench", "--package=advent-of-code-2022"],
+        "args": ["build", "--bin=bench"],
         "filter": {
           "name": "bench",
           "kind": "bin"
@@ -34,7 +34,7 @@
       "request": "launch",
       "name": "Debug 'bench' for current file",
       "cargo": {
-        "args": ["build", "--bin=bench", "--package=advent-of-code-2022"],
+        "args": ["build", "--bin=bench"],
         "filter": {
           "name": "bench",
           "kind": "bin"
