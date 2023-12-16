@@ -1,26 +1,16 @@
 pub fn solution(lines: Vec<&str>) -> String {
-    let mut line_iter = lines.iter();
+    let (_, seeds) = lines[0].split_once(':').unwrap();
 
-    // seeds
-    let mut result = line_iter.next().unwrap()[7..]
+    let mut result = seeds
         .split(' ')
+        .filter(|x| !x.is_empty())
         .map(|x| x.parse::<usize>().unwrap())
         .collect::<Vec<_>>();
 
-    // skip empty line
-    line_iter.next();
-
-    for _ in 0..7 {
-        // skip map header
-        line_iter.next();
-
+    for chunk in lines[2..].split(|x| x.is_empty()) {
         let mut found = vec![false; result.len()];
 
-        while let Some(line) = line_iter.next() {
-            if line == &"" {
-                break;
-            }
-
+        for line in &chunk[1..] {
             let map = line
                 .split(' ')
                 .map(|x| x.parse::<usize>().unwrap())
