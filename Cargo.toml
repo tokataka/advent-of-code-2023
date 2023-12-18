@@ -6,7 +6,7 @@ default-run = "run"
 
 [[bin]]
 name = "run"
-path = "src/main.rs"
+path = "src/bin/run.rs"
 
 [[bin]]
 name = "bench"
