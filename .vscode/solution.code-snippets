@@ -6,7 +6,7 @@
 			"pub fn solution(lines: Vec<&str>) -> String {",
 			"    $0",
 			"",
-			"    String::new()",
+			"    \"\".to_string()",
 			"}",
 		]
 	}
