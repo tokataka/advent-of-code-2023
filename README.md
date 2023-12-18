@@ -174,6 +174,14 @@ Average: 859051.627us, Min: 848995.725us, Max: 886070.817us
 [day17_p2]
 Result of 100 iterations
 Average: 1466612.289us, Min: 1439661.842us, Max: 1604590.138us
+
+[day18_p1]
+Result of 100 iterations
+Average: 15.798us, Min: 14.994us, Max: 31.036us
+
+[day18_p2]
+Result of 100 iterations
+Average: 19.791us, Min: 17.629us, Max: 45.007us
 ```
 
 ## License
