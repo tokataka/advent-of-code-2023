@@ -65,7 +65,10 @@ pub fn solution(lines: Vec<&str>) -> String {
     let board_height = board.len();
     let board_width = board[0].len();
 
-    let mut queue: VecDeque<State> = VecDeque::from(vec![State::new((0, 1), Right, 1), State::new((1, 0), Down, 1)]);
+    let mut queue: VecDeque<State> = VecDeque::from(vec![
+        State::new((0, 1), Right, 1),
+        State::new((1, 0), Down, 1),
+    ]);
     let mut heart_loss_map: HashMap<State, u32> = HashMap::new();
 
     while let Some(state) = queue.pop_front() {
@@ -132,14 +135,19 @@ pub fn solution(lines: Vec<&str>) -> String {
 
         let cur_heart_loss = board[state.i][state.j] + last_heart_loss;
 
-        match heart_loss_map.get_mut(&state) {
-            Some(heart_loss) if cur_heart_loss >= *heart_loss => {
+        let min_heart_loss = (1..=state.move_count)
+            .filter_map(|move_count| {
+                let mut cur_state = state;
+                cur_state.move_count = move_count;
+                heart_loss_map.get(&cur_state)
+            })
+            .min();
+
+        match min_heart_loss {
+            Some(min_heart_loss) if cur_heart_loss >= *min_heart_loss => {
                 continue;
             }
-            Some(heart_loss) => {
-                *heart_loss = cur_heart_loss;
-            }
-            None => {
+            Some(_) | None => {
                 heart_loss_map.insert(state, cur_heart_loss);
             }
         }

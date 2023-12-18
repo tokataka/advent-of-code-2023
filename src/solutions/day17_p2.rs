@@ -136,14 +136,23 @@ pub fn solution(lines: Vec<&str>) -> String {
 
         let cur_heart_loss = board[state.i][state.j] + last_heart_loss;
 
-        match heart_loss_map.get_mut(&state) {
-            Some(heart_loss) if cur_heart_loss >= *heart_loss => {
+        let min_heart_loss = if state.move_count > 4 {
+            (4..=state.move_count)
+                .filter_map(|move_count| {
+                    let mut cur_state = state;
+                    cur_state.move_count = move_count;
+                    heart_loss_map.get(&cur_state)
+                })
+                .min()
+        } else {
+            heart_loss_map.get(&state)
+        };
+
+        match min_heart_loss {
+            Some(min_heart_loss) if cur_heart_loss >= *min_heart_loss => {
                 continue;
             }
-            Some(heart_loss) => {
-                *heart_loss = cur_heart_loss;
-            }
-            None => {
+            Some(_) | None => {
                 heart_loss_map.insert(state, cur_heart_loss);
             }
         }
