@@ -14,34 +14,6 @@
       },
       "args": ["${fileBasenameNoExtension}"],
       "cwd": "${workspaceFolder}"
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
-      "name": "Debug 'bench' for all solutions",
-      "cargo": {
-        "args": ["build", "--bin=bench"],
-        "filter": {
-          "name": "bench",
-          "kind": "bin"
-        }
-      },
-      "args": [],
-      "cwd": "${workspaceFolder}"
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
-      "name": "Debug 'bench' for current file",
-      "cargo": {
-        "args": ["build", "--bin=bench"],
-        "filter": {
-          "name": "bench",
-          "kind": "bin"
-        }
-      },
-      "args": ["${fileBasenameNoExtension}"],
-      "cwd": "${workspaceFolder}"
     }
   ]
 }
