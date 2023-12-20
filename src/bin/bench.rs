@@ -8,19 +8,16 @@ const ITERATION_COUNT: usize = 100;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let solution_name = args.get(1);
+    let solution_names = args.get(1..);
 
     for (name, solution) in solutions() {
-        match solution_name {
-            Some(solution_name) => {
-                if name != solution_name {
-                    continue;
-                }
-            }
-            None => {
-                println!("[{name}]");
+        if let Some(solution_names) = solution_names {
+            if solution_names.iter().all(|x| x != name) {
+                continue;
             }
         }
+
+        println!("[{name}]");
 
         let input_file = format!("resource/input/{}.txt", name.split('_').next().unwrap());
         let input = fs::read_to_string(input_file).unwrap();

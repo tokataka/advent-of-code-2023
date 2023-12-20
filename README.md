@@ -11,7 +11,7 @@ I created this project so that I could focus on solving the problem with less ef
 cargo run [--release] -- day1_p1
 
 # benchmark
-cargo run [--release] --bin bench [-- day1_p1]
+cargo run [--release] --bin bench [-- day1_p1 [day1_p2 ...]]
 ```
 
 ## How to add solutions
@@ -182,6 +182,14 @@ Average: 15.798us, Min: 14.994us, Max: 31.036us
 [day18_p2]
 Result of 100 iterations
 Average: 19.791us, Min: 17.629us, Max: 45.007us
+
+[day19_p1]
+Result of 100 iterations
+Average: 285.704us, Min: 273.532us, Max: 421.198us
+
+[day19_p2]
+Result of 100 iterations
+Average: 217.317us, Min: 210.731us, Max: 319.667us
 ```
 
 ## License
