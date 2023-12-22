@@ -10,14 +10,17 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let solution_names = args.get(1..);
 
+    println!("Result of 100 iterations");
+    println!();
+    println!("| Solution Name |       Average |           Min |           Max |");
+    println!("| ------------- | ------------: | ------------: | ------------: |");
+
     for (name, solution) in solutions() {
         if let Some(solution_names) = solution_names {
             if solution_names.iter().all(|x| x != name) {
                 continue;
             }
         }
-
-        println!("[{name}]");
 
         let input_file = format!("resource/input/{}.txt", name.split('_').next().unwrap());
         let input = fs::read_to_string(input_file).unwrap();
@@ -46,15 +49,12 @@ fn main() {
             }
         }
 
-        let elapsed_time_avg = elapsed_time_sum / ITERATION_COUNT as f64;
+        let mut elapsed_time_avg = elapsed_time_sum / ITERATION_COUNT as f64;
 
-        println!("Result of {ITERATION_COUNT} iterations");
-        println!(
-            "Average: {:.3}us, Min: {:.3}us, Max: {:.3}us",
-            elapsed_time_avg * 1_000_000.0,
-            elapsed_time_min * 1_000_000.0,
-            elapsed_time_max * 1_000_000.0,
-        );
-        println!();
+        elapsed_time_avg *= 1_000_000.0;
+        elapsed_time_min *= 1_000_000.0;
+        elapsed_time_max *= 1_000_000.0;
+
+        println!("| {name:<13} | {elapsed_time_avg:>11.3}µs | {elapsed_time_min:>11.3}µs | {elapsed_time_max:>11.3}µs |");
     }
 }
