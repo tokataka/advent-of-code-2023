@@ -12,8 +12,8 @@ fn main() {
 
     println!("Result of 100 iterations");
     println!();
-    println!("| Solution Name |       Average |           Min |           Max |");
-    println!("| ------------- | ------------: | ------------: | ------------: |");
+    println!("| Solution Name |        Average |            Min |            Max |");
+    println!("| ------------- | -------------: | -------------: | -------------: |");
 
     for (name, solution) in solutions() {
         if let Some(solution_names) = solution_names {
@@ -55,6 +55,6 @@ fn main() {
         elapsed_time_min *= 1_000_000.0;
         elapsed_time_max *= 1_000_000.0;
 
-        println!("| {name:<13} | {elapsed_time_avg:>11.3}µs | {elapsed_time_min:>11.3}µs | {elapsed_time_max:>11.3}µs |");
+        println!("| {name:<13} | {elapsed_time_avg:>12.3}µs | {elapsed_time_min:>12.3}µs | {elapsed_time_max:>12.3}µs |");
     }
 }
